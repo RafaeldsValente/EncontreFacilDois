@@ -60,4 +60,16 @@ public class UsuarioModel {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return "UsuarioModel{" +
+                "id_usuario=" + id_usuario +
+                ", fk_localizacao=" + fk_localizacao +
+                ", nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
+    }
 }

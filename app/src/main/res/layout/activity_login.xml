@@ -58,6 +58,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:typeface="normal"
+            android:onClick="StartTelaCadastro"
             tools:layout_editor_absoluteX="26dp"
             tools:layout_editor_absoluteY="215dp" />
     </LinearLayout>

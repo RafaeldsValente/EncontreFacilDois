@@ -48,6 +48,12 @@ public class LoginActivity extends Activity {
         Toast.makeText(this, "usuario: " + usuario + " e senha: " + senha, Toast.LENGTH_LONG).show();
     }
 
+    public void StartTelaCadastro(View v) {
+
+        Intent c = new Intent(LoginActivity.this, CadastroActivity.class);
+        startActivity(c);
+    }
+
     private class DownloadFromMyAPI extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
@@ -98,5 +104,7 @@ public class LoginActivity extends Activity {
                 Toast.makeText(LoginActivity.this, "Usuario nao consta no sistema!", Toast.LENGTH_LONG).show();
             }
         }
+
+
     }
 }
