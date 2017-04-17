@@ -58,7 +58,7 @@ public class LoginActivity extends Activity {
 
             try {
                 //URL url = new URL("http://104.197.212.29/EncontreFacilWs/rest/Usuario/GetUsuario/1");// + usuario + "/" + senha);
-                URL url = new URL("http://104.197.212.29/EncontreFacilWs/rest/Usuario/VerificarUsuario/" + usuario + "/" + senha);
+                URL url = new URL("http://104.198.246.43/EncontreFacilWs/rest/Usuario/VerificarUsuario/" + usuario + "/" + senha);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setReadTimeout(10000);
                 urlConnection.setConnectTimeout(15000);
