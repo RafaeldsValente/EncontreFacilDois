@@ -41,6 +41,7 @@ public class LoginActivity extends Activity {
         if(!usuario.isEmpty() &&  !senha.isEmpty())
         {
             new DownloadFromMyAPI().execute();
+
         }else{
             Toast.makeText(this, "Digite seu email e senha!", Toast.LENGTH_LONG).show();
         }
