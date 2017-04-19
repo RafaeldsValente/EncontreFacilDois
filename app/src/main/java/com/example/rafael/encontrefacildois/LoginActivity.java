@@ -64,18 +64,16 @@ public class LoginActivity extends Activity {
             int length = 500;
 
             try {
-                //URL url = new URL("http://104.197.212.29/EncontreFacilWs/rest/Usuario/GetUsuario/1");// + usuario + "/" + senha);
                 URL url = new URL("http://104.198.246.43/EncontreFacilWs/rest/Usuario/VerificarUsuario/" + usuario + "/" + senha);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setReadTimeout(10000);
                 urlConnection.setConnectTimeout(15000);
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setDoInput(true);
-                //urlConnection.setDoOutput(true);
                 urlConnection.connect();
 
                 int response = urlConnection.getResponseCode();
-               is = urlConnection.getInputStream();
+                is = urlConnection.getInputStream();
 
                 // Convert the InputStream into a string
                 contentAsString = Util.webToString(is);
@@ -105,7 +103,5 @@ public class LoginActivity extends Activity {
                 Toast.makeText(LoginActivity.this, "Usuario nao consta no sistema!", Toast.LENGTH_LONG).show();
             }
         }
-
-
     }
 }
