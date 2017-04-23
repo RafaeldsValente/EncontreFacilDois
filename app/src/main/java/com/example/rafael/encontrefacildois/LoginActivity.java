@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.example.rafael.encontrefacildois.Model.UsuarioModel;
 import com.example.rafael.encontrefacildois.Util.Util;
 
+import org.json.JSONObject;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -77,6 +79,9 @@ public class LoginActivity extends Activity {
 
                 // Convert the InputStream into a string
                 contentAsString = Util.webToString(is);
+
+                JSONObject mainObject = new JSONObject(contentAsString);
+                String msg = mainObject.getString("mensagem");
 
             } catch (Exception e) {
                 Log.e("Error", "Error ", e);

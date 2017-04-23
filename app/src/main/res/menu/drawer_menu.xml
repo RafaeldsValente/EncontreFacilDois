@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/item_eletronicos"
+            android:title="Eletrônicos"
+            android:icon="@drawable/ic_desktop_windows_black_24dp"/>
+        <item
+            android:id="@+id/item_roupas"
+            android:title="Roupas"
+            android:icon="@drawable/ic_accessibility_black_24dp"/>
+        <item
+            android:id="@+id/item_acessorios"
+            android:title="Acessórios"
+            android:icon="@drawable/ic_watch_black_24dp"/>
+        <item
+            android:id="@+id/item_eletrodomesticos"
+            android:title="Eletrodomésticos"
+            android:icon="@drawable/ic_android_black_24dp"/>
+ </group>
+</menu>
