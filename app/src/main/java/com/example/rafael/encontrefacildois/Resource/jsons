@@ -1,0 +1,307 @@
+**VER O METODO ESCLUIR DE TODOS.
+
+
+/* JSONs PARA USUARIO */
+CADASTRAR(LOCALIZACAO NAO PODE ESTAR NULA) LINK: /EncontreFacilWs/rest/Usuario/Cadastrar
+{
+   "email": "",
+   "fk_localizacao":    {
+      "latitude": "",
+      "longitude": ""
+   },
+   "nome": "",
+   "senha": "",
+   "sobrenome": ""
+}
+ALTERAR(TEM QUE PASSAR AS IDS TAMBEM, SENAO DA ERRO) LINK: /EncontreFacilWs/rest/Usuario/Alterar
+{
+   "email": "",
+   "fk_localizacao":    {
+      "id_localizacao": ,
+      "latitude": "",
+      "longitude": ""
+   },
+   "id_usuario": ,
+   "nome": "",
+   "senha": "",
+   "sobrenome": ""
+}
+LOGAR(TEM QUE PASSAR O OBJETO COM EMAIL E SENHA PREENCHIDO) LINK: /EncontreFacilWs/rest/Usuario/Logar
+{
+   "email": "",
+   "fk_localizacao":    {
+      "id_localizacao": ,
+      "latitude": "",
+      "longitude": ""
+   },
+   "id_usuario": ,
+   "nome": "",
+   "senha": "",
+   "sobrenome": ""
+}
+
+/* JSONs PARA LOJA */
+CADASTRAR (TEM QUE TER O USUARIO COM ID, CATEGORIA DA LOJA COM ID E LOCALIZACAO) LINK:  /EncontreFacilWs/rest/Loja/Cadastrar
+{
+      "fk_categoria_loja":       {
+         "categoria_loja": 1,
+         "nome": "Calcados"
+      },
+      "fk_localizacao":       {
+         "latitude": "3123123",
+         "longitude": "334234234366"
+      },
+      "fk_usuario":       {
+         "email": "l@gmail.com",
+         "fk_localizacao":          {
+            "id_localizacao": 1,
+            "latitude": "321",
+            "longitude": "123"
+         },
+         "id_usuario": 1,
+         "nome": "Lucas",
+         "senha": "1234",
+         "sobrenome": "Galvao"
+      },
+      "nome": "Scarpini"
+}
+ALTERAR	(TEM QUE TER A LOJA COM ID, CATEGORIA DA LOJA COM ID E LOCALIZACAO COM ID) LINK: /EncontreFacilWs/rest/Loja/Alterar
+{
+         "fk_categoria_loja":          {
+            "categoria_loja": 1,
+            "nome": "Eletronicos"
+         },
+         "fk_localizacao":          {
+            "id_localizacao": 3,
+            "latitude": "4444444",
+            "longitude": "333333333"
+         },
+		 "fk_usuario":       {
+         "email": "l@gmail.com",
+         "fk_localizacao":          {
+            "id_localizacao": 1,
+            "latitude": "321",
+            "longitude": "123"
+         },
+         "id_usuario": 2,
+         "nome": "Lucas",
+         "senha": "1234",
+         "sobrenome": "asdasd"
+      },
+         "id_loja": 2,
+         "nome": "SCARPANO"
+
+}
+LOJAS DO USUARIO (TEM QUE PASSAR O ID DO USUARIO NO LINK) LINK: /EncontreFacilWs/rest/Loja/LojasUsuario/{ID}
+
+/*CATEGORIAS DE LOJAS*/
+LISTAR TODAS /EncontreFacilWs/rest/CategoriaLoja/Todas
+
+/*JSONs PARA PRODUTO*/
+CADASTRAR /EncontreFacilWs/rest/Produto/Cadastrar
+{
+      "descricao": "Tenis Fodastivo",
+      "fk_categoria_produto":       {
+         "id_categoria_produto": 1,
+         "nome": "Calcados"
+      },
+      "fk_loja":       {
+         "fk_categoria_loja":          {
+            "categoria_loja": 1,
+            "nome": "Calcaodos"
+         },
+         "fk_localizacao":          {
+            "id_localizacao": 2,
+            "latitude": "99966633",
+            "longitude": "33366999"
+         },
+         "fk_usuario":          {
+            "email": "l@gmail.com",
+            "fk_localizacao":             {
+               "id_localizacao": 1,
+               "latitude": "33366",
+               "longitude": "66333"
+            },
+            "id_usuario": 1,
+            "nome": "Lucas",
+            "senha": "luii123",
+            "sobrenome": "Galvao"
+         },
+         "id_loja": 1,
+         "nome": "Omar"
+      },
+      "fk_marca_produto":       {
+         "id_marca_produto": 1,
+         "nome": "Nike"
+      },
+      "nome": "AIRBAN",
+      "preco": "1123.90"
+   }
+ALTERAR /EncontreFacilWs/rest/Produto/Alterar
+{
+      "descricao": "Tenis Masin",
+      "fk_categoria_produto":       {
+         "id_categoria_produto": 1,
+         "nome": "Calcados"
+      },
+      "fk_loja":       {
+         "fk_categoria_loja":          {
+            "categoria_loja": 1,
+            "nome": "Calcaodos"
+         },
+         "fk_localizacao":          {
+            "id_localizacao": 2,
+            "latitude": "99966633",
+            "longitude": "33366999"
+         },
+         "fk_usuario":          {
+            "email": "l@gmail.com",
+            "fk_localizacao":             {
+               "id_localizacao": 1,
+               "latitude": "33366",
+               "longitude": "66333"
+            },
+            "id_usuario": 1,
+            "nome": "Lucas",
+            "senha": "luii123",
+            "sobrenome": "Galvao"
+         },
+         "id_loja": 1,
+         "nome": "Omar"
+      },
+      "fk_marca_produto":       {
+         "id_marca_produto": 1,
+         "nome": "Nike"
+      },
+      "id_produto": 1,
+      "nome": "AIRBAN",
+      "preco": "1123.90"
+   }
+BUSCAR:
+	-POR CATEGORIA /EncontreFacilWs/rest/Produto/PorCategoria/{ID}
+	-POR LOJA /EncontreFacilWs/rest/Produto/PorLoja/{ID}
+	-POR MARCA /EncontreFacilWs/rest/Produto/PorMarca/{ID}
+	-TUDO /EncontreFacilWs/rest/Produto/Tudo
+
+/*CATEGORIAS DE PRODUTOS*/
+LISTAR TODAS /EncontreFacilWs/rest/CategoriaProduto/Todas
+
+/*MARCAS DE PRODUTOS*/
+LISTAR TODAS /EncontreFacilWs/rest/MarcaProduto/Todas
+
+/*AVALIACAO DO PRODUTO*/
+CADASTRAR /EncontreFacilWs/rest/AvaliacaoProduto/Cadastrar
+{
+      "comentario": "Uma bosta",
+      "fk_produto":       {
+         "descricao": "Tenis Masin",
+         "fk_categoria_produto":          {
+            "id_categoria_produto": 1,
+            "nome": "Calcados"
+         },
+         "fk_loja":          {
+            "fk_categoria_loja":             {
+               "categoria_loja": 1,
+               "nome": "Calcaodos"
+            },
+            "fk_localizacao":             {
+               "id_localizacao": 2,
+               "latitude": "99966633",
+               "longitude": "33366999"
+            },
+            "fk_usuario":             {
+               "email": "l@gmail.com",
+               "fk_localizacao":                {
+                  "id_localizacao": 1,
+                  "latitude": "33366",
+                  "longitude": "66333"
+               },
+               "id_usuario": 1,
+               "nome": "Lucas",
+               "senha": "luii123",
+               "sobrenome": "Galvao"
+            },
+            "id_loja": 1,
+            "nome": "Omar"
+         },
+         "fk_marca_produto":          {
+            "id_marca_produto": 1,
+            "nome": "Nike"
+         },
+         "id_produto": 1,
+         "nome": "AIRBAN",
+         "preco": "1123.90"
+      },
+      "fk_usuario":       {
+         "email": "l@gmail.com",
+         "fk_localizacao":          {
+            "id_localizacao": 1,
+            "latitude": "33366",
+            "longitude": "66333"
+         },
+         "id_usuario": 1,
+         "nome": "Lucas",
+         "senha": "luii123",
+         "sobrenome": "Galvao"
+      },
+
+      "nota": 0
+   }
+ALTERAR /EncontreFacilWs/rest/AvaliacaoProduto/Alterar
+{
+      "comentario": "Uma bosta",
+      "fk_produto":       {
+         "descricao": "Tenis Masin",
+         "fk_categoria_produto":          {
+            "id_categoria_produto": 1,
+            "nome": "Calcados"
+         },
+         "fk_loja":          {
+            "fk_categoria_loja":             {
+               "categoria_loja": 1,
+               "nome": "Calcaodos"
+            },
+            "fk_localizacao":             {
+               "id_localizacao": 2,
+               "latitude": "99966633",
+               "longitude": "33366999"
+            },
+            "fk_usuario":             {
+               "email": "l@gmail.com",
+               "fk_localizacao":                {
+                  "id_localizacao": 1,
+                  "latitude": "33366",
+                  "longitude": "66333"
+               },
+               "id_usuario": 1,
+               "nome": "Lucas",
+               "senha": "luii123",
+               "sobrenome": "Galvao"
+            },
+            "id_loja": 1,
+            "nome": "Omar"
+         },
+         "fk_marca_produto":          {
+            "id_marca_produto": 1,
+            "nome": "Nike"
+         },
+         "id_produto": 1,
+         "nome": "AIRBAN",
+         "preco": "1123.90"
+      },
+      "fk_usuario":       {
+         "email": "l@gmail.com",
+         "fk_localizacao":          {
+            "id_localizacao": 1,
+            "latitude": "33366",
+            "longitude": "66333"
+         },
+         "id_usuario": 1,
+         "nome": "Lucas",
+         "senha": "luii123",
+         "sobrenome": "Galvao"
+      },
+      "id_avaliacao_produto": 1,
+      "nota": 0
+   }
+AVALIACAO DE UM PRODUTO /EncontreFacilWs/rest/AvaliacaoProduto/PorProduto/{ID}
