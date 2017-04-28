@@ -1,6 +1,7 @@
 package com.example.rafael.encontrefacildois;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,9 +9,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.rafael.encontrefacildois.Model.Localizacao;
+import com.example.rafael.encontrefacildois.Model.Usuario;
 import com.example.rafael.encontrefacildois.Model.UsuarioModel;
+import com.example.rafael.encontrefacildois.Util.HttpMetods;
 import com.google.gson.Gson;
 
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -33,7 +41,7 @@ public class CadastroActivity extends Activity {
     static String email;
     static String senha;
 
-    private UsuarioModel usuario;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +56,7 @@ public class CadastroActivity extends Activity {
 
     public void Cadastrar(View v){
 
-        usuario = new UsuarioModel();
+        usuario = new Usuario();
 
         nome = editNome.getText().toString();
         sobrenome = editSobrenome.getText().toString();
@@ -59,6 +67,10 @@ public class CadastroActivity extends Activity {
         usuario.setSobrenome(sobrenome);
         usuario.setEmail(email);
         usuario.setSenha(senha);
+        Localizacao localizacao = new Localizacao();
+        localizacao.setLongitude("1233");
+        localizacao.setLatitude("123");
+        usuario.setFk_localizacao(localizacao);
 
         Toast.makeText(this,usuario.toString(),Toast.LENGTH_LONG).show();
 
@@ -73,38 +85,28 @@ public class CadastroActivity extends Activity {
             HttpURLConnection urlConnection = null;
             InputStream inputS = null;
             Gson gson = new Gson();
-
-            try {
-                URL url = new URL("http://104.198.246.43/EncontreFacilWs/rest/Usuario/Cadastrar");
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setReadTimeout(10000);
-                urlConnection.setConnectTimeout(15000);
-                urlConnection.setRequestMethod("POST");
-                urlConnection.setDoInput(true);
-                urlConnection.setDoOutput(true);
-
-                String jsonUsuario = gson.toJson(usuario);
-
-                OutputStreamWriter writer = new OutputStreamWriter(urlConnection.getOutputStream());
-                writer.write(jsonUsuario.toString());
-                writer.flush();
-
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-
-            }catch (Exception e){
-                e.printStackTrace();
-                Log.e("Error", "Error ", e);
-                return null;
-            }finally {
-                urlConnection.disconnect();
-            }
-            return null;
+            String result = HttpMetods.POST("Usuario/Cadastrar", gson.toJson(usuario));
+            return result;
         }
 
         @Override
         protected void onPostExecute(String s) {
+            if(s != null)
+            {
+                try{
+                    JSONObject obj = new JSONObject(s);
+                    if(obj.getBoolean("ok"))
+                    {
+                        Toast.makeText(CadastroActivity.this, obj.getString("mensagem"),Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(CadastroActivity.this, LoginActivity.class);
+                        startActivity(i);
+                    }
 
+                }catch (Exception e)
+                {
 
+                }
+            }
         }
     }
 }

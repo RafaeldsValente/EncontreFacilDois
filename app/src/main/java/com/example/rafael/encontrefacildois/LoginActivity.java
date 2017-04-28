@@ -100,10 +100,10 @@ public class LoginActivity extends Activity {
             super.onPostExecute(s);
             UsuarioModel usuarioModel = Util.ConvertJsonToUsuario(s);
             if(usuarioModel != null){
-                Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                i.putExtra("Usuario",usuarioModel.getNome());
-                i.putExtra("Email",usuarioModel.getEmail());
-                startActivity(i);
+//                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+//                i.putExtra("Usuario",usuarioModel.getNome());
+//                i.putExtra("Email",usuarioModel.getEmail());
+//                startActivity(i);
             }else{
                 Toast.makeText(LoginActivity.this, "Usuario nao consta no sistema!", Toast.LENGTH_LONG).show();
             }
