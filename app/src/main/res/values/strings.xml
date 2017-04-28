@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EncontreFacilDois</string>
+    <string name="app_name">Encontre Fácil</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="navigation_drawer_open">Drawer Open</string>
     <string name="navigation_drawer_close">Drawer Closed</string>

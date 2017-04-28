@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/itemHome"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Inicio" />
+    </group>
+
+    <item android:title="Categorias">
+        <menu>
+            <item
+                android:id="@+id/itemEletronicos"
+                android:icon="@drawable/ic_desktop_windows_black_24dp"
+                android:title="Eletrônicos" />
+            <item
+                android:id="@+id/itemRoupas"
+                android:icon="@drawable/ic_accessibility_black_24dp"
+                android:title="Roupas" />
+            <item
+                android:id="@+id/itemAcessorios"
+                android:icon="@drawable/ic_watch_black_24dp"
+                android:title="Acessórios" />
+
+            <item
+                android:id="@+id/itemEletrodomesticos"
+                android:title="Eletrodomésticos"
+                android:icon="@drawable/ic_android_black_24dp"/>
+        </menu>
+    </item>
+
+    <item android:title="Conta">
+        <menu>
+            <item
+                android:id="@+id/itemConfiguracoes"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="Configurações" />
+            <item
+                android:id="@+id/itemSair"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="Sair" />
+        </menu>
+    </item>
+
+</menu>
